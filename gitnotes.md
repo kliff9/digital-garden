@@ -39,3 +39,11 @@ Overall, Git objects are a critical part of how Git works and are essential for 
 3. The git program traverses the linked list and extracts the relevant information for each commit. This includes the commit hash, author, message, timestamp, and any other metadata that is stored with the commit.
 
 4. The extracted information is then formatted and printed to the console. The default formatting for git log includes the commit hash, author, timestamp, and commit message, with each commit being displayed on a separate line.
+
+commit bf2ce41ecb6c92a00f71c5987b6d5410f5c7b811
+Author: Marti <martisbvk@gmail.com>
+Date: Thu Dec 22 13:52:58 2022 -0500
+
+    doc: Create isomorphic-git topic
+
+]
