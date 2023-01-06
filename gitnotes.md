@@ -30,11 +30,11 @@ Git objects are the fundamental building blocks of a Git repository. They are us
 
 Overall, Git objects are a critical part of how Git works and are essential for tracking and managing the contents of a Git repository.
 
-Explain how the implementation of git log work
+## Explain how the implementation of git log work
 
 1. When the git log command is run, the git program is invoked with the log command. The git program then starts executing the log command.
 
-2. The git program searches the local repository for the commit history. In the local repository, the commit history is stored in a data structure called a linked list, where each commit is represented as a node in the list. The linked list is stored in a file called the packed-refs file, which is located in the .git directory of the repository.
+2. The git program searches the local repository for the commit history. In the local repository, the commit history is stored in a data structure called a linked list, where each commit is represented as a node in the list. The linked list is stored in a file called the packed-refs file
 
 3. The git program traverses the linked list and extracts the relevant information for each commit. This includes the commit hash, author, message, timestamp, and any other metadata that is stored with the commit.
 
