@@ -5,3 +5,8 @@ Trees: Trees represent the file structure of a Git repository. They contain a li
 Commits: Commits represent a snapshot of the repository at a particular point in time. They store metadata about the commit, such as the author, message, and parent commit(s), as well as a reference to the top-level tree of the commit.
 Tags: Tags are used to label specific commits for easy reference. They can be used to mark release points or to annotate important commits in the history of a project.
 Git stores these objects in a simple, flat structure within the .git directory of a repository. Each object is stored in a file named with its SHA-1 hash, and the contents of the object are stored in a compressed, binary format.
+
+⚫ git add + git commit commands
+when you run the git add and git commit commands — it stores blobs for the files that have changed, updates the index, writes out trees, and writes commit objects that reference the top-level trees and the commits that came immediately before them.
+⚫ How Git Objects are stored
+Git stores its objects in a simple key-value database that maps object names (hashes) to the contents of the objects. Each object is stored in a file with a name that is the hash of the object's contents, and the contents of the object are stored in the file.
