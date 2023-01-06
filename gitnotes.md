@@ -40,10 +40,25 @@ Overall, Git objects are a critical part of how Git works and are essential for 
 
 4. The extracted information is then formatted and printed to the console. The default formatting for git log includes the commit hash, author, timestamp, and commit message, with each commit being displayed on a separate line.
 
-commit bf2ce41ecb6c92a00f71c5987b6d5410f5c7b811
-Author: Marti <martisbvk@gmail.com>
-Date: Thu Dec 22 13:52:58 2022 -0500
+## How Would I implement mailmap
 
-    doc: Create isomorphic-git topic
+## Stopped, realizing I need to learn Linked
 
-]
+```
+gitlog()
+
+check if mailmap exist (assuming it exist and is formated correctly)
+
+for (let i = 0; i < gitlog.length; i++)
+    Console.log(commit), (readline?, pause node untill key press)
+
+    if any mailmaps.old_email in data.Author:
+        Console.log('Author', mailmap email)
+    else:
+        Console.log('Author', orginal email)
+    Console.log(date_), (readline?, pause node untill key press)
+    Console.log(commit_message), (readline?, pause node untill key press)
+
+
+
+```
