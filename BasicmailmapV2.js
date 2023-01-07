@@ -12,16 +12,25 @@ provided by .mailmap instead of the orginal credentials after confirming that th
 //-------------- .mailmap ---------------- \\
 const email = "<GOAT@gmail.com>" || null;
 const email2change = "<example@gmail.com>" || null;
+let ismailmap = true;
 
 //-------------- Mailmap function ---------------- \\
 
-let mailmap = {};
+let modified_List;
+let mailmap_info = {};
 
-function addmailmap(old_email, new_email) {
-  mailmap[old_email] = new_email;
+function modified_with_mailmap(old_email, new_email) {
+  mailmap_info[old_email] = new_email;
+  modified_List = List_commits;
+
+  for (let i = 0; i < modified_List.length; i++) {
+    if (modified_List[i].Author.includes(Object.keys(mailmap_info))) {
+      modified_List[i].Author = mailmap_info[email2change];
+      console.log(modified_List[i].Author);
+    }
+  }
+  return modified_List;
 }
-
-addmailmap(email2change, email);
 
 //-------------- List of commits---------------- \\
 
@@ -41,32 +50,26 @@ let List_commits = [
   },
 ];
 
-function gitlog_() {
-  for (let i = 0; i < List_commits.length; i++) {
-    if (List_commits[i].Author.includes(String(Object.keys(mailmap)))) {
-      console.log(
-        "Commit: ",
-        List_commits[i].commit,
-        " The Arthor: Example",
-        mailmap[email2change]
-      ); // print the new mailmap info if it exist
-    } else {
-      console.log(
-        "Commit: ",
-        List_commits[i].commit,
-        "Arthor: ",
-        List_commits[i].Author
-      ); // always print the original
-    }
+// ------------- git log function  --------------- \\
+
+function gitlog_(Active_List) {
+  for (let i = 0; i < Active_List.length; i++) {
+    console.log(
+      "Commit: ",
+      Active_List[i].commit,
+      "Arthor: ",
+      Active_List[i].Author
+    ); // always print the original
   }
 }
 
-gitlog_(); // Hypothetically checks for .mailmap and adjust any Necessary changes.
-
-// Part 2
-
-// test
-let text = "the";
-if (mailmap_info & (text === "the")) {
-  console.log("TRUE");
+// ------------- git log function with mailmap --------------- \\
+function main() {
+  if (ismailmap) {
+    let new_modified_list = modified_with_mailmap(email2change, email);
+    gitlog_(new_modified_list);
+  } else {
+    gitlog_(List_commits);
+  }
 }
+main();

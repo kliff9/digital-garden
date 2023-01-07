@@ -32,15 +32,31 @@ Overall, Git objects are a critical part of how Git works and are essential for 
 
 ## Explain how the implementation of git log work
 
-1. When the git log command is run, the git program is invoked with the log command. The git program then starts executing the log command.
+To implement git log, Git first retrieves the commit objects that make up the history for the current branch. It does this by traversing the commit graph starting from the branch's reference
 
-2. The git program searches the local repository for the commit history. In the local repository, the commit history is stored in a data structure called a linked list, where each commit is represented as a node in the list. The linked list is stored in a file called the packed-refs file
+1. Git starts at the reference (e.g., HEAD) for the current branch and follows the commit graph backwards by traversing the parent links of each commit.
 
-3. The git program traverses the linked list and extracts the relevant information for each commit. This includes the commit hash, author, message, timestamp, and any other metadata that is stored with the commit.
+2. It retrieves the commit objects for all commits in the branch's history and stores them in memory.
 
-4. The extracted information is then formatted and printed to the console. The default formatting for git log includes the commit hash, author, timestamp, and commit message, with each commit being displayed on a separate line.
+3. Git formats the commit information for each commit, including the commit hash, author, date, and message.
+
+4. It displays the formatted commit information to the user, with the most recent commit at the top by default.
 
 ## How Would I implement mailmap
+
+1. The git log command is run with the --use-mailmap option. This tells Git to use the mailmap feature when generating the output for the command.
+
+2. The mailmap function is called by the git log command. This function is responsible for applying the email address mappings specified in the ".mailmap" file to the commit history.
+
+3. The mailmap function reads the ".mailmap" file and parses it, building a data structure that maps each email address to the corresponding author name.
+
+4. The mailmap function retrieves the commit history for the repository. This is a list of all the commits in the repository, with each commit represented as an object containing information about the commit, such as the commit message, author name, and author email address.
+
+5. The mailmap function iterates through the list of commits, looking up each commit's author email address in the data structure created in step 3. If a mapping is found, the function replaces the commit's author name and email with the mapped values. If no mapping is found, the commit's original author name and email are used.
+
+6. The mailmap function returns the modified list of commits to the git log command.
+
+7. The git log command outputs the commit information to the user, using the modified author names and emails provided by the mailmap function.
 
 ## Stopped, realizing I need to learn Linked
 
