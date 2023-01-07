@@ -58,22 +58,42 @@ To implement git log, Git first retrieves the commit objects that make up the hi
 
 7. The git log command outputs the commit information to the user, using the modified author names and emails provided by the mailmap function.
 
-## Stopped, realizing I need to learn Linked
+### How Would I implement mailmap - Code Speculation
+
+Main Steps
+
+Step 1 Have a function that Loops through a list and console.log data
+Step 2 check if .mailmap exist in directory
+Step 3 Have a function that will extract info from .mailmap and modified the List of commits accordingly
+Step 4 Have a function return the correct list based on if there a .mailmap file or not
+Step 5 debugg unforseen errors
 
 ```
-gitlog()
 
-check if mailmap exist (assuming it exist and is formated correctly)
 
-for (let i = 0; i < gitlog.length; i++)
-    Console.log(commit), (readline?, pause node untill key press)
+let List_Of_Commits = The original List of Commits
 
-    if any mailmaps.old_email in data.Author:
-        Console.log('Author', mailmap email)
-    else:
-        Console.log('Author', orginal email)
-    Console.log(date_), (readline?, pause node untill key press)
-    Console.log(commit_message), (readline?, pause node untill key press)
+function modify_list():
+    for x in List_Of_Commits.length:
+        This Function will loop through the list and replace
+        the neccessary credentials
+
+
+function readlog(current_list):
+    for x in current_list.length:
+        Console.log(current_list[x].commit)  (readline?, pause node untill key press)
+        Console.log(current_list[x].Arthor)  (readline?, pause node untill key press)
+        Console.log(current_list[x].date_)  (readline?, pause node untill key press)
+        Console.log(current_list[x].commit_message)  (readline?, pause node untill key press)
+
+
+function gitlog():
+
+    if .mailmap == true:
+        readlog(modify_list(List_Of_Commits))
+    else
+        readlog(List_Of_Commits)
+
 
 
 

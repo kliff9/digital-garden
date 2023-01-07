@@ -1,12 +1,13 @@
-/* This Code is a very simplfied version of how I think .mailmap is implemented with git log using javascipt without using Linked-List
+/* This Code is a very simplfied version of how I think .mailmap is implemented with git log using javascipt
 
 
-Step 1. console.log the usually information
-Step 2. Check if .mailmap exist When We get to Author Line
-Step 2a. Make sure that .mailmap has the correct credentials
-(Nothing is mispelled or any other errors) if so, extract the infomation
-Step 2b. if Information was extracted from .mailmap then use the value
-provided by .mailmap instead of the orginal credentials after confirming that the data matches
+Step 1. execute git log command
+Step 2. Git checks Grabs the List of Commits
+Step 3 Node app Checks if .mailmap exist
+Step 4a If Mailmap exist and correctly formatted, Node App will return a modifed list
+Step 4b If Mailmap dosent exist or is inccoretly formated then Node App will return the orginal list
+Step 5a Node App Will loop through the List of commits and change neccessary data in the Arthor property
+
 */
 
 //-------------- .mailmap ---------------- \\

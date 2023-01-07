@@ -1,4 +1,4 @@
-/* This Code is a very simplfied version of how I think .mailmap is implemented with git log using javascipt without using Linked-List
+/* This Code is a very simplfied version of how I think .mailmap is implemented with git log using javascipt
 
 
 Step 1. console.log the usually information
