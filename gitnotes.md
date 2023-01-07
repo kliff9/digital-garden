@@ -72,11 +72,17 @@ Step 5 debugg unforseen errors
 
 
 let List_Of_Commits = The original List of Commits
+Let Ismailmap = false
+
+
+if .mailmap in directory:
+    Ismailmap = true
 
 function modify_list():
     for x in List_Of_Commits.length:
         This Function will loop through the list and replace
         the neccessary credentials
+
 
 
 function readlog(current_list):
@@ -89,7 +95,7 @@ function readlog(current_list):
 
 function gitlog():
 
-    if .mailmap == true:
+    if Ismailmap === true:
         readlog(modify_list(List_Of_Commits))
     else
         readlog(List_Of_Commits)
